@@ -33,7 +33,7 @@
 
           if (typeof patient.name[0] !== 'undefined') {
             if (patient.name[0].given)
-            f  name = patient.name[0].given.join(' ');
+              fname = patient.name[0].given.join(' ');
             if (patient.name[0].family)
               lname = patient.name[0].family.join(' ');
           }
