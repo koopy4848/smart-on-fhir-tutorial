@@ -6,7 +6,7 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-
+    
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
@@ -32,10 +32,11 @@
           var lname = '';
 
           if (typeof patient.name[0] !== 'undefined') {
-            if (patient.name[0].given)
-              fname = patient.name[0].given.join(' ');
-            if (patient.name[0].family)
+            fname = patient.name[0].given.join(' ');
+            if (Array.isArray(patient.name[0].family))
               lname = patient.name[0].family.join(' ');
+            else
+              lname = patient.name[0].family;
           }
 
           var height = byCodes('8302-2');
